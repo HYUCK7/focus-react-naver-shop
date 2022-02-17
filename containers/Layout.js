@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Bmi from "../components/Bmi";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -9,15 +8,17 @@ export default function Layout ({children}){
         <Table>
             <thead>
             <Tr>
-                <Td><Header/></Td>
+                <Th><Header/></Th>
             </Tr>
             </thead>
             <tbody>
             <Tr>
-                <Td>{children}</Td>
+                <Td>
+                    {children}
+                </Td>
             </Tr>
             <Tr>
-                <Td><Footer></Footer></Td>
+                <Td><Footer/></Td>
             </Tr>
             </tbody>
         </Table>
@@ -27,6 +28,7 @@ const Table= styled.table`
     border: 1px solid black;
     width: 1000px;
     height: 500px;
+    margin: auto
 `
 const Tr = styled.tr`
     border: 1px solid black
