@@ -4,18 +4,22 @@ import Bmi from "../components/Bmi";
 import Footer from "./Footer";
 import Header from "./Header";
 
-const Layout =(props)=>{
+export default function Layout ({children}){
     return (<div>
         <Table>
+            <thead>
             <Tr>
                 <Td><Header/></Td>
             </Tr>
+            </thead>
+            <tbody>
             <Tr>
-                <Td>{props.children}</Td>
+                <Td>{children}</Td>
             </Tr>
             <Tr>
                 <Td><Footer></Footer></Td>
             </Tr>
+            </tbody>
         </Table>
         </div>)
 }
@@ -33,4 +37,3 @@ const Th = styled.th`
 const Td = styled.td`
     border: 1px solid black
 `
-export default Layout

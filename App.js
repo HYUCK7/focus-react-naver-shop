@@ -1,18 +1,26 @@
 import React from "react";
-import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom'
+import { useRoutes } from "react-router-dom";
 import Home from "./pages/Home"
 import Bmi from "./components/Bmi";
 import Calc from "./components/Calc";
 import Grade from "./components/Grade";
 import Login from "./components/Login";
 
-
+export default function App () {
+  return useRoutes([
+    {path: "/", element:<Home />},
+    {path: "bmi", element:<Bmi />}, 
+    {path: "calc", element:<Calc />}, 
+    {path: "grade", element:<Grade />}, 
+    {path: "login", element:<Login />}, 
+  ])
+}
+/*
 const App =() => {
   return(
     <div>
       <Router>
         <Routes>
-    
           <Route expected path="/" element={<Home/>}/>
           <Route path = "/bmi" element={<Bmi/>}/>
           <Route path = "/calc" element={<Calc/>}/>
@@ -23,4 +31,4 @@ const App =() => {
     </div>
   )
 }
-export default App;
+*/
