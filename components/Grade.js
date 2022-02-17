@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 const Grade = () => {
     return<><h1>성적표</h1>
     <form >
