@@ -10,12 +10,13 @@ export default function Navibar (){
         <Li><Link to="/calc">Calc</Link></Li>
         <Li><Link to="/grade">Grade</Link></Li>
         <Li><Link to="/login">Login</Link></Li>
+        <Li><Link to="/counter">Counter</Link></Li>
     </Ul>
     </nav>
     </div>)
 }
 const Ul = styled.ul`
-  background-color: #FF0000;
+  background-color: #800000;
   text-decoration: none;
   text-align: center;
 `

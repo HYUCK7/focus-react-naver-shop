@@ -1,6 +1,8 @@
-import React from "react"
+import React, {useState} from "react"
 import Layout from "../containers/Layout";
+
 export default function Bmi(){
+    const [length, weight, setlength, setweight] = useState(0);
     return <Layout><h1>BMI</h1>
     <form>
         <div>
