@@ -1,48 +1,37 @@
 import React, {useState} from "react";
 import Layout from "../containers/Layout";
 
-export default function Grade  ()  {
-    const[kor, setKor] = useState(0)
-    const[eng, setEng] = useState(0)
-    const[math, setMath] = useState(0)
-    const[total, setTotal] = useState(0)
-    const[avg, setAvg] = useState(0)
-    const sum =()=>{
-        let kor = document.getElementById('kor').value
-        console.log(`국어: ` + kor)
-        let eng = document.getElementById('eng').value
-        console.log(`영어: ` + eng)
-        let math = document.getElementById('math').value
-        console.log(`수학: ` + math)
-        setKor(kor)
-        setEng(eng)
-        setMath(math)
-        setTotal(Number(kor) + Number(eng) + Number(math))
-        console.log(`총점: ` + total)
+export default function Grade(){
+    const[inputs, setInputs] = useState({})
+    const[name, kor, eng, math] = inputs
+    
+    const handleChange=(e)=>{
+        e.preventDefault()
+        const {value, name} = e.target;
+        setInputs({
+            ...inputs, [name]: value
+        })
     }
-    return<Layout><h1>성적표</h1>
-    
-        <div>
-            <span></span>
-            <img src="" alt="" />
-        </div>
-        <div>
-            <label htmlFor=""><b>kor</b></label><br />
-            <input id = "kor" type =""/><br/>
-            <label htmlFor=""><b>eng</b></label><br />
-            <input id = "eng" type =""/><br/>
-            <label htmlFor=""><b>math</b></label><br />
-            <input id = "math" type =""/><br/>
-            <label htmlFor=""><b>total</b></label><br />
-            <input type="text" /><br />
-            <label htmlFor=""><b>avg</b></label><br />
-            <input type="text" /><br />
+    const handleClick=(e)=>{
+        e.preventDefault()
+        const gradeRequest = {name, kor, eng, math}
+        alert(`result:${JSON.stringify(gradeRequest)}`)
+    }
 
-        
-            <button onClick={()=>{sum()}}>총점 구하기</button>
-            <div>총점: {kor} + {math} +{eng} = {total}</div>
-        </div>
-    
+    return<Layout>
+        <form>
+            <h1>Grade</h1>
+            <div>
+                <label><b>name</b></label>
+                <input type = "text" name = "name" onChange={handleChange}/><br/>
+                <label><b>kor</b></label>
+                <input type = "text" name = "kor" onChange={handleChange}/><br/>
+                <label><b>math</b></label>
+                <input type = "text" name = "math" onChange={handleChange}/><br/>
+                <label><b>eng</b></label>
+                <input type = "text" name = "eng" onChange={handleChange}/><br/>
+                <button onClick={handleClick}>check</button>
+            </div>
+        </form>
     </Layout>
-
 }
