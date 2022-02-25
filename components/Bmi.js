@@ -1,6 +1,7 @@
 import React, {useState} from "react"
+import { memberBmi } from "../api";
 import Layout from "../containers/Layout";
-import axios from 'axios';
+
 export default function Bmi(){
    const[inputs, setInputs] = useState({})
    const{name, weight, length} = inputs // object Destructing ->구조 분해 할당
@@ -23,25 +24,16 @@ export default function Bmi(){
         setLength(length)
         setWeight(weight)
     }*/
-    /* const handleClick =async (e) =>{
-        e.preventDefault()
-        alert(` 버튼 클릭 `)
-        try{
-            setName(`홍길동`)
-            setLength(180.5)
-            setWeight(80.5)
-            await axios.get(`http://localhost:8080/member/bmi/홍길동/180.5/70`)
-            .then((res)=>{
-                    alert(`답장이 도착했습니다. [내용] ${JSON.stringify(res.data)}`)
-            })
-        }catch(error){
-                alert(`답장이 도착했습니다.`)
-        }
-    }*/
+    /* */
     const handleClick =(e) => {
         e.preventDefault()
         const bmiRequest = {name, weight, length}
-        alert(`username: ${JSON.stringify(bmiRequest)}`)
+        console.log(`username: ${JSON.stringify(bmiRequest)}`)
+        memberBmi(bmiRequest)
+        .then(res =>{
+            alert(res.data)
+        })
+        .catch(err=> console.log(`에러발생 : ${err}`))
     }
     /*return <Layout>
         <form><h1>BMI</h1>

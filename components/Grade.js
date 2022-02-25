@@ -3,7 +3,7 @@ import Layout from "../containers/Layout";
 
 export default function Grade(){
     const[inputs, setInputs] = useState({})
-    const[name, kor, eng, math] = inputs
+    const{name, kor, eng, math} = inputs
     
     const handleChange=(e)=>{
         e.preventDefault()
@@ -15,7 +15,7 @@ export default function Grade(){
     const handleClick=(e)=>{
         e.preventDefault()
         const gradeRequest = {name, kor, eng, math}
-        alert(`result:${JSON.stringify(gradeRequest)}`)
+        alert(`result ${JSON.stringify(gradeRequest)}`)
     }
 
     return<Layout>
